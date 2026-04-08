@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="bg_dark">#0A0E1A</color>
+    <color name="card_bg">#1A2A4A</color>
+    <color name="card_stroke">#2A4A7A</color>
+    <color name="text_primary">#E8F0FF</color>
+    <color name="text_secondary">#7A9ACC</color>
+    <color name="acc_color">#5B8DEF</color>
+    <color name="light_color">#FFD54F</color>
+    <color name="proximity_near">#EF5350</color>
+    <color name="proximity_far">#66BB6A</color>
+    <color name="dot_active">#00E676</color>
+    <color name="dot_inactive">#555555</color>
+    <color name="status_bar">#0A0E1A</color>
+</resources>

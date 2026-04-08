@@ -1,0 +1,551 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/bg_gradient"
+    android:fillViewport="true"
+    android:scrollbarStyle="outsideOverlay">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:paddingStart="20dp"
+        android:paddingEnd="20dp"
+        android:paddingTop="48dp"
+        android:paddingBottom="32dp">
+
+        <!-- ====== HEADER ====== -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:layout_marginBottom="8dp">
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Live Sensor"
+                    android:textSize="14sp"
+                    android:letterSpacing="0.15"
+                    android:textColor="#7A9ACC"
+                    android:textAllCaps="true"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Dashboard"
+                    android:textSize="30sp"
+                    android:textStyle="bold"
+                    android:textColor="#E8F0FF"
+                    android:letterSpacing="-0.02"/>
+
+            </LinearLayout>
+
+            <!-- Live pulse indicator -->
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:background="#1A2A4A"
+                android:paddingStart="12dp"
+                android:paddingEnd="12dp"
+                android:paddingTop="8dp"
+                android:paddingBottom="8dp">
+
+                <View
+                    android:id="@+id/globalDot"
+                    android:layout_width="8dp"
+                    android:layout_height="8dp"
+                    android:background="@drawable/indicator_dot"
+                    android:layout_marginEnd="6dp"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="ACTIVE"
+                    android:textColor="#00E676"
+                    android:textSize="11sp"
+                    android:letterSpacing="0.12"
+                    android:textStyle="bold"/>
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <!-- Subtitle line -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Real-time hardware sensor readings"
+            android:textColor="#4A6A9A"
+            android:textSize="13sp"
+            android:layout_marginBottom="28dp"/>
+
+
+        <!-- ====== ACCELEROMETER CARD ====== -->
+        <LinearLayout
+            android:id="@+id/cardAccelerometer"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="20dp"
+            android:background="@drawable/card_ripple"
+            android:layout_marginBottom="16dp"
+            android:elevation="8dp"
+            android:clickable="true"
+            android:focusable="true">
+
+            <!-- Card Header -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:layout_marginBottom="16dp">
+
+                <ImageView
+                    android:layout_width="28dp"
+                    android:layout_height="28dp"
+                    android:src="@drawable/ic_accelerometer"
+                    android:layout_marginEnd="12dp"
+                    tools:ignore="ContentDescription"/>
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Accelerometer"
+                        android:textColor="#E8F0FF"
+                        android:textSize="16sp"
+                        android:textStyle="bold"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Motion + Gravity (m/s2)"
+                        android:textColor="#4A6A9A"
+                        android:textSize="12sp"/>
+
+                </LinearLayout>
+
+                <!-- Status badge -->
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical">
+
+                    <View
+                        android:id="@+id/dotAcc"
+                        android:layout_width="8dp"
+                        android:layout_height="8dp"
+                        android:background="@drawable/indicator_dot_off"
+                        android:layout_marginEnd="5dp"/>
+
+                    <TextView
+                        android:id="@+id/statusAcc"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="OFFLINE"
+                        android:textColor="#555555"
+                        android:textSize="10sp"
+                        android:textStyle="bold"
+                        android:letterSpacing="0.1"/>
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <!-- Accelerometer Values -->
+            <TextView
+                android:id="@+id/accText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="X: ---     Y: ---     Z: ---"
+                android:textColor="#5B8DEF"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                android:fontFamily="monospace"
+                android:layout_marginBottom="16dp"/>
+
+            <!-- Axis X progress bar -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:layout_marginBottom="8dp">
+
+                <TextView
+                    android:layout_width="20dp"
+                    android:layout_height="wrap_content"
+                    android:text="X"
+                    android:textColor="#5B8DEF"
+                    android:textSize="12sp"
+                    android:textStyle="bold"
+                    android:layout_marginEnd="8dp"/>
+
+                <ProgressBar
+                    android:id="@+id/progressX"
+                    style="@style/Widget.AppCompat.ProgressBar.Horizontal"
+                    android:layout_width="0dp"
+                    android:layout_height="6dp"
+                    android:layout_weight="1"
+                    android:max="200"
+                    android:progress="100"
+                    android:progressDrawable="@drawable/progress_bar_acc"/>
+
+                <TextView
+                    android:id="@+id/labelX"
+                    android:layout_width="52dp"
+                    android:layout_height="wrap_content"
+                    android:text="0.00"
+                    android:textColor="#7A9ACC"
+                    android:textSize="11sp"
+                    android:fontFamily="monospace"
+                    android:gravity="end"
+                    android:layout_marginStart="8dp"/>
+
+            </LinearLayout>
+
+            <!-- Axis Y progress bar -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:layout_marginBottom="8dp">
+
+                <TextView
+                    android:layout_width="20dp"
+                    android:layout_height="wrap_content"
+                    android:text="Y"
+                    android:textColor="#5B8DEF"
+                    android:textSize="12sp"
+                    android:textStyle="bold"
+                    android:layout_marginEnd="8dp"/>
+
+                <ProgressBar
+                    android:id="@+id/progressY"
+                    style="@style/Widget.AppCompat.ProgressBar.Horizontal"
+                    android:layout_width="0dp"
+                    android:layout_height="6dp"
+                    android:layout_weight="1"
+                    android:max="200"
+                    android:progress="100"
+                    android:progressDrawable="@drawable/progress_bar_acc"/>
+
+                <TextView
+                    android:id="@+id/labelY"
+                    android:layout_width="52dp"
+                    android:layout_height="wrap_content"
+                    android:text="0.00"
+                    android:textColor="#7A9ACC"
+                    android:textSize="11sp"
+                    android:fontFamily="monospace"
+                    android:gravity="end"
+                    android:layout_marginStart="8dp"/>
+
+            </LinearLayout>
+
+            <!-- Axis Z progress bar -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_vertical">
+
+                <TextView
+                    android:layout_width="20dp"
+                    android:layout_height="wrap_content"
+                    android:text="Z"
+                    android:textColor="#5B8DEF"
+                    android:textSize="12sp"
+                    android:textStyle="bold"
+                    android:layout_marginEnd="8dp"/>
+
+                <ProgressBar
+                    android:id="@+id/progressZ"
+                    style="@style/Widget.AppCompat.ProgressBar.Horizontal"
+                    android:layout_width="0dp"
+                    android:layout_height="6dp"
+                    android:layout_weight="1"
+                    android:max="200"
+                    android:progress="100"
+                    android:progressDrawable="@drawable/progress_bar_acc"/>
+
+                <TextView
+                    android:id="@+id/labelZ"
+                    android:layout_width="52dp"
+                    android:layout_height="wrap_content"
+                    android:text="0.00"
+                    android:textColor="#7A9ACC"
+                    android:textSize="11sp"
+                    android:fontFamily="monospace"
+                    android:gravity="end"
+                    android:layout_marginStart="8dp"/>
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+
+        <!-- ====== LIGHT SENSOR CARD ====== -->
+        <LinearLayout
+            android:id="@+id/cardLight"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="20dp"
+            android:background="@drawable/card_ripple"
+            android:layout_marginBottom="16dp"
+            android:elevation="8dp"
+            android:clickable="true"
+            android:focusable="true">
+
+            <!-- Card Header -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:layout_marginBottom="16dp">
+
+                <ImageView
+                    android:layout_width="28dp"
+                    android:layout_height="28dp"
+                    android:src="@drawable/ic_light"
+                    android:layout_marginEnd="12dp"
+                    tools:ignore="ContentDescription"/>
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Light Sensor"
+                        android:textColor="#E8F0FF"
+                        android:textSize="16sp"
+                        android:textStyle="bold"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Ambient illuminance (lux)"
+                        android:textColor="#4A6A9A"
+                        android:textSize="12sp"/>
+
+                </LinearLayout>
+
+                <!-- Status badge -->
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical">
+
+                    <View
+                        android:id="@+id/dotLight"
+                        android:layout_width="8dp"
+                        android:layout_height="8dp"
+                        android:background="@drawable/indicator_dot_off"
+                        android:layout_marginEnd="5dp"/>
+
+                    <TextView
+                        android:id="@+id/statusLight"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="OFFLINE"
+                        android:textColor="#555555"
+                        android:textSize="10sp"
+                        android:textStyle="bold"
+                        android:letterSpacing="0.1"/>
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <!-- Light value row -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:layout_marginBottom="14dp">
+
+                <TextView
+                    android:id="@+id/lightText"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="--- lx"
+                    android:textColor="#FFD54F"
+                    android:textSize="28sp"
+                    android:textStyle="bold"
+                    android:fontFamily="monospace"/>
+
+                <TextView
+                    android:id="@+id/lightDescription"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="---"
+                    android:textColor="#4A6A9A"
+                    android:textSize="14sp"
+                    android:textStyle="italic"/>
+
+            </LinearLayout>
+
+            <!-- Light level bar -->
+            <ProgressBar
+                android:id="@+id/lightProgressBar"
+                style="@style/Widget.AppCompat.ProgressBar.Horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="8dp"
+                android:max="1000"
+                android:progress="0"
+                android:progressDrawable="@drawable/progress_bar_light"/>
+
+        </LinearLayout>
+
+
+        <!-- ====== PROXIMITY SENSOR CARD ====== -->
+        <LinearLayout
+            android:id="@+id/cardProximity"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="20dp"
+            android:background="@drawable/card_ripple"
+            android:layout_marginBottom="16dp"
+            android:elevation="8dp"
+            android:clickable="true"
+            android:focusable="true">
+
+            <!-- Card Header -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:layout_marginBottom="16dp">
+
+                <ImageView
+                    android:layout_width="28dp"
+                    android:layout_height="28dp"
+                    android:src="@drawable/ic_proximity"
+                    android:layout_marginEnd="12dp"
+                    tools:ignore="ContentDescription"/>
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Proximity Sensor"
+                        android:textColor="#E8F0FF"
+                        android:textSize="16sp"
+                        android:textStyle="bold"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Object detection (cm)"
+                        android:textColor="#4A6A9A"
+                        android:textSize="12sp"/>
+
+                </LinearLayout>
+
+                <!-- Status badge -->
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical">
+
+                    <View
+                        android:id="@+id/dotProximity"
+                        android:layout_width="8dp"
+                        android:layout_height="8dp"
+                        android:background="@drawable/indicator_dot_off"
+                        android:layout_marginEnd="5dp"/>
+
+                    <TextView
+                        android:id="@+id/statusProximity"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="OFFLINE"
+                        android:textColor="#555555"
+                        android:textSize="10sp"
+                        android:textStyle="bold"
+                        android:letterSpacing="0.1"/>
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <!-- Proximity state -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_vertical">
+
+                <TextView
+                    android:id="@+id/proximityText"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="---"
+                    android:textColor="#66BB6A"
+                    android:textSize="28sp"
+                    android:textStyle="bold"/>
+
+                <TextView
+                    android:id="@+id/proximityDistance"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="--- cm"
+                    android:textColor="#4A6A9A"
+                    android:textSize="14sp"
+                    android:fontFamily="monospace"/>
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <!-- ====== FOOTER ====== -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Sensor Dashboard  |  Real-time hardware readings"
+            android:textColor="#2A4A7A"
+            android:textSize="11sp"
+            android:gravity="center"
+            android:layout_marginTop="12dp"/>
+
+    </LinearLayout>
+</ScrollView>

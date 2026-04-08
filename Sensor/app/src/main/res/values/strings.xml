@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Sensor Dashboard</string>
+    <string name="title_dashboard">Live Sensor Dashboard</string>
+    <string name="label_accelerometer">Accelerometer</string>
+    <string name="label_light">Light Sensor</string>
+    <string name="label_proximity">Proximity Sensor</string>
+    <string name="sensor_unavailable">Not Available on this device</string>
+    <string name="unit_lux">lx</string>
+    <string name="state_near">Near</string>
+    <string name="state_far">Far</string>
+    <string name="state_active">LIVE</string>
+    <string name="state_inactive">OFFLINE</string>
+    <string name="axis_x">X</string>
+    <string name="axis_y">Y</string>
+    <string name="axis_z">Z</string>
+    <string name="light_dark">Dark</string>
+    <string name="light_dim">Dim</string>
+    <string name="light_normal">Normal</string>
+    <string name="light_bright">Bright</string>
+    <string name="light_very_bright">Very Bright</string>
+
+        <string name="acc_sensor">Accelerometer</string>
+        <string name="light_sensor">Light Sensor</string>
+        <string name="proximity_sensor">Proximity Sensor</string>
+        <string name="sensor_not_available">Sensor not available</string>
+        <!-- Add more as needed -->
+
+
+</resources>
