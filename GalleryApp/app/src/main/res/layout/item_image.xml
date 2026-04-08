@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- res/layout/item_image.xml -->
+<!--
+    This is ONE cell in the 3-column grid.
+    The ImageView ID MUST be: imageViewItem
+    It is square because width=match_parent and height is
+    fixed at 120dp to give a uniform grid look.
+-->
+<FrameLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="120dp"
+    android:padding="2dp">
+
+    <!-- ID must be: imageViewItem -->
+    <ImageView
+        android:id="@+id/imageViewItem"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scaleType="centerCrop"
+        android:background="#BDBDBD"
+        android:contentDescription="Gallery image thumbnail"/>
+
+</FrameLayout>
